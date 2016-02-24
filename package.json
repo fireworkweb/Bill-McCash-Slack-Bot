@@ -1,9 +1,9 @@
 {
-  "name": "slackbot",
+  "name": "bill-mccash",
   "version": "0.0.1",
-  "description": "Simple slack bot",
+  "description": "Bill McCash Slack Bot",
   "main": "app.js",
-  "author": "Wesley Henrique Francisco",
+  "author": "Firework - Web Solutions",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.15.0",
