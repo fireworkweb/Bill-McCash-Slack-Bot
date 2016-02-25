@@ -6,7 +6,7 @@ var CronJob = require('cron').CronJob;
 
 // Variables
 var app = Express();
-var port = process.env.PORT || 3927;
+var port = process.env.PORT || 3000;
 var currency = {
     from: 'USD',
     to: 'BRL',
