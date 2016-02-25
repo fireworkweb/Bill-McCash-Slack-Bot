@@ -51,7 +51,7 @@ var job = new CronJob({
             }
         });
 
-        slackSend('text');
+        slackSend(text);
     },
     start: false,
     timeZone: 'America/Sao_Paulo'
