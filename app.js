@@ -44,9 +44,9 @@ var job = new CronJob({
                 value = values[1];
 
                 if (currentHours == '10') {
-                    text = "Greetings! What a lovely morning to enrich yourself, isn't it? My currency-o-matic watch is showing that the " + currency.from + " exchange rate to " + currency.to + " is " + value + "!";
+                    text = "Greetings! What a lovely morning to enrich yourself, isn't it? My currency-o-matic watch is showing that the " + currency.from + " exchange rate to " + currency.to + " is *R$ " + value + "*!";
                 } else {
-                    text = 'Salutations, fellow investors! Did you know that the ' + currency.from + ' exchange rate to ' + currency.to + ' is currently ' + value + '? Keep that in mind if you plan on buying useless stuff from China today!';
+                    text = 'Salutations, fellow investors! Did you know that the ' + currency.from + ' exchange rate to ' + currency.to + ' is currently *R$ ' + value + '*? Keep that in mind if you plan on buying useless stuff from China today!';
                 }
             }
         });
@@ -83,9 +83,9 @@ app.post('/bill', function(req, res){
             value = values[1];
 
             if (user == 'dbpolito' || user == 'hideo') {
-                text = 'Hey there, boss! Eager to get your hands on some dollars, eh? Alright, the ' + currency.from + ' exchange rate to ' + currency.to + ' today is ' + value + '. One day I will be as rich as you are!';
+                text = 'Hey there, boss! Eager to get your hands on some dollars, eh? Alright, the ' + currency.from + ' exchange rate to ' + currency.to + ' today is *R$ ' + value + '*. One day I will be as rich as you are!';
             } else {
-                text = 'Hello there, fellow capitalist ' + user + '! As far as my stock trader contact tells me, today the ' + currency.from + ' exchange rate to ' + currency.to + ' is ' + value + ' !';
+                text = 'Hello there, fellow capitalist ' + user + '! As far as my stock trader contact tells me, today the ' + currency.from + ' exchange rate to ' + currency.to + ' is *R$ ' + value + '* !';
             }
         } else {
             text = 'Something went wrong.';
