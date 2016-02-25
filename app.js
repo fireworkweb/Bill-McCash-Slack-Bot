@@ -1,5 +1,6 @@
 // Requires
 var Express = require('express');
+var bodyParser = require('body-parser');
 var Request = require('request');
 var CronJob = require('cron').CronJob;
 
@@ -55,6 +56,9 @@ var job = new CronJob({
     start: false,
     timeZone: 'America/Sao_Paulo'
 });
+
+// Use
+app.use(bodyParser.urlencoded({extended: true}));
 
 // listen
 app.listen(port, function() {
