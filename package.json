@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Bill McCash Slack Bot",
   "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
   "author": "Firework - Web Solutions",
   "license": "MIT",
   "dependencies": {
