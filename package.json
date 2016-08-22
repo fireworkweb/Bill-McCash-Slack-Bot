@@ -1,17 +1,19 @@
 {
   "name": "bill-mccash",
-  "version": "0.0.1",
+  "version": "0.5.0",
   "description": "Bill McCash Slack Bot",
-  "main": "app.js",
+  "main": "bill.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node bill.js",
+    "reinstall": "rm -rf node_modules && npm i --no-progress"
   },
   "author": "Firework - Web Solutions",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.15.0",
-    "cron": "^1.1.0",
-    "express": "^4.13.4",
-    "request": "^2.69.0"
+    "node-schedule": "^1.1.1",
+    "restify": "^4.1.1"
+  },
+  "engines": {
+    "node": "^6.0.0"
   }
 }
