@@ -1,3 +1,4 @@
 node_modules
 Procfile
 *.log
+env.json
