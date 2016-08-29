@@ -1,14 +1,14 @@
 {
     "botName": "Bill McCash",
     "trigger": "bill",
-    "slackWebhookURL": "https://hooks.slack.com/services/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",
+    "slackWebhookURL": "Incoming Webhook URL",
 
     "currency": {
         "from": "USD",
         "to": "BRL"
     },
 
-    "bosses": ["dbpolito", "hideo"],
+    "bosses": ["user1", "user2"],
 
     "msg": {
         "morning": "Greetings! What a lovely morning to enrich yourself, isn't it? My currency-o-matic watch is showing that the {from} exchange rate to {to} is *R$ {value}*!",
