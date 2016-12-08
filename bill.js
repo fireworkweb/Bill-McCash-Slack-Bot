@@ -9,7 +9,7 @@ const messageReplace = (msg, data) => {
         msg = msg.replace(`{${key}}`, data[key]);
     }
 
-    if(env.emoji) {
+    if(env.emoji && env.emoji.length) {
         let randomNumber = Math.floor(Math.random() * env.emoji.length);
         msg += ` ${env.emoji[randomNumber]}`;
     }
