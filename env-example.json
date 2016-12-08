@@ -18,6 +18,8 @@
         "error": "Hey ho! I'm facing issues retrieving the exchange rate from my contacts. Let me try again later."
     },
 
+    "emoji": [ ":money_with_wings:", ":dollar:", ":moneybag:" ],
+
     "cron": {
         "enabled": false,
         "schedule": "0 10,14 * * 1,2,3,4,5"
