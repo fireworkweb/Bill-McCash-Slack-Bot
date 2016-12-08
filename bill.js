@@ -10,7 +10,7 @@ const messageReplace = (msg, data) => {
     }
 
     if(env.emoji) {
-        let randomNumber = Math.floor((Math.random() * env.emoji.length));
+        let randomNumber = Math.floor(Math.random() * env.emoji.length);
         msg += ` ${env.emoji[randomNumber]}`;
     }
 
