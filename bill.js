@@ -41,7 +41,7 @@ const getExchangeRate = () =>{
 
 const getExchangeRateFallback = () => {
     return new Promise((resolve, reject) => {
-        fallbackDolarAPI.get('', (fallbackErr, fallbackReq, fallbackRes, fallbackObj) => {
+        fallbackDolarAPI.get('', (fallbackErr, fallbackReq, fallbackRes) => {
             if(fallbackErr) {
                 reject(fallbackErr);
             } else if(fallbackRes && fallbackRes.body) {
