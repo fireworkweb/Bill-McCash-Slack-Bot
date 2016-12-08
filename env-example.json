@@ -11,6 +11,7 @@
     "bosses": ["user1", "user2"],
 
     "msg": {
+        "wait": "Just a second, I'll get in touch with some people and get you the exchange rate. :bar_chart:",
         "morning": "Greetings! What a lovely morning to enrich yourself, isn't it? My currency-o-matic watch is showing that the {from} exchange rate to {to} is *R$ {value}*!",
         "afternoon": "Salutations, fellow investors! Did you know that the {from} exchange rate to {to} is currently *R$ {value}*? Keep that in mind if you plan on buying useless stuff from China today!",
         "boss": "Hey there, boss! Eager to get your hands on some dollars, eh? Alright, the {from} exchange rate to {to} today is *R$ {value}*. One day I will be as rich as you are!",

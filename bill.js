@@ -55,6 +55,12 @@ const getExchangeRateFallback = () => {
     });
 };
 
+const postTextToSlack = (text) => {
+    slackHook.post('', {text}, (err, req, res, obj) => {
+        console.log(`Message sent. Status code -> ${res.statusCode}`);
+    });
+};
+
 // Server
 const server = restify.createServer({
     name: `${env.botName} Slack Bot`
@@ -68,15 +74,16 @@ server.post(`/${env.trigger}`, (req, res, next) => {
     let user = req.params.user_name;
     let msg = env.bosses.indexOf(user) != -1 ? env.msg.boss : env.msg.fellow;
 
+    res.send({ text: env.msg.wait });
+
     getExchangeRate().then(
         (exchangeRate) =>
-            res.send({text: messageReplace(msg, {
-                    'user': user,
-                    'from': env.currency.from,
-                    'to': env.currency.to,
-                    'value': exchangeRate
-                })
-            }),
+            postTextToSlack(messageReplace(msg, {
+                'user': user,
+                'from': env.currency.from,
+                'to': env.currency.to,
+                'value': exchangeRate
+            })),
         (error) => res.send({text: env.msg.error})
     );
 
@@ -98,15 +105,11 @@ schedule.scheduleJob(env.cron.schedule, () => {
 
     getExchangeRate().then(
         (exchangeRate) => {
-            let text = messageReplace(msg, {
+            postTextToSlack(messageReplace(msg, {
                 'from': env.currency.from,
                 'to': env.currency.to,
                 'value': exchangeRate
-            });
-
-            slackHook.post('', {text}, (err, req, res, obj) => {
-                console.log(`Message sent. Status code -> ${res.statusCode}`);
-            });
+            }));
         },
         (error) => res.send({text: env.msg.error})
     );
