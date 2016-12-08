@@ -2,3 +2,4 @@ node_modules
 Procfile
 *.log
 env.json
+.DS_Store
