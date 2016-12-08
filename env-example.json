@@ -17,6 +17,8 @@
         "fellow": "Hello there, fellow capitalist {user}! As far as my stock trader contact tells me, today the {from} exchange rate to {to} is *R$ {value}* !"
     },
 
+    "emoji": [ ":tada:", ":slightly_smiling_face:", ":money_mouth_face:", ":stuck_out_tongue_winking_eye:", ":money_with_wings:", ":dollar:", ":moneybag:", ":rocket:" ],
+
     "cron": {
         "enabled": false,
         "schedule": "0 10,14 * * 1,2,3,4,5"
