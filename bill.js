@@ -24,15 +24,9 @@ const fallbackDolarAPI = restify.createJsonClient({
 const getExchangeRate = () =>{
     return new Promise((resolve, reject) => {
         dolarAPI.get('', (dolarErr, dolarReq, dolarRes, obj) => {
-            let tryFallback = false;
-            if(dolarErr) {
-                tryFallback =  true;
-            } else if(obj && obj[0] && obj[0].bid) {
+            if(obj && obj[0] && obj[0].bid) {
                 resolve(obj[0].bid);
             } else {
-                tryFallback =  true;
-            }
-            if(tryFallback) {
                 getExchangeRateFallback().then(resolve, reject);
             }
         });
@@ -42,9 +36,7 @@ const getExchangeRate = () =>{
 const getExchangeRateFallback = () => {
     return new Promise((resolve, reject) => {
         fallbackDolarAPI.get('', (fallbackErr, fallbackReq, fallbackRes) => {
-            if(fallbackErr) {
-                reject(fallbackErr);
-            } else if(fallbackRes && fallbackRes.body) {
+            if(fallbackRes && fallbackRes.body) {
                 let arr = fallbackRes.body.split(',');
                 if(arr.length > 1) {
                     resolve(arr[1]);
@@ -104,8 +96,9 @@ schedule.scheduleJob(env.cron.schedule, () => {
             let text = messageReplace(msg, {
                 'from': env.currency.from,
                 'to': env.currency.to,
-                'value': obj[0].bid
+                'value': exchangeRate
             });
+
             slackHook.post('', {text}, (err, req, res, obj) => {
                 console.log(`Message sent. Status code -> ${res.statusCode}`);
             });

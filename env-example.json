@@ -14,7 +14,8 @@
         "morning": "Greetings! What a lovely morning to enrich yourself, isn't it? My currency-o-matic watch is showing that the {from} exchange rate to {to} is *R$ {value}*!",
         "afternoon": "Salutations, fellow investors! Did you know that the {from} exchange rate to {to} is currently *R$ {value}*? Keep that in mind if you plan on buying useless stuff from China today!",
         "boss": "Hey there, boss! Eager to get your hands on some dollars, eh? Alright, the {from} exchange rate to {to} today is *R$ {value}*. One day I will be as rich as you are!",
-        "fellow": "Hello there, fellow capitalist {user}! As far as my stock trader contact tells me, today the {from} exchange rate to {to} is *R$ {value}* !"
+        "fellow": "Hello there, fellow capitalist {user}! As far as my stock trader contact tells me, today the {from} exchange rate to {to} is *R$ {value}* !",
+        "error": "Hey ho! I'm facing issues retrieving the exchange rate from my contacts. Let me try again later."
     },
 
     "cron": {
