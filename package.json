@@ -1,19 +1,26 @@
 {
   "name": "bill-mccash",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Bill McCash Slack Bot",
-  "main": "bill.js",
-  "scripts": {
-    "start": "node bill.js",
-    "reinstall": "rm -rf node_modules && npm i --no-progress"
-  },
-  "author": "Firework - Web Solutions",
+  "author": "Firework Web e Mobile",
   "license": "MIT",
-  "dependencies": {
-    "node-schedule": "^1.1.1",
-    "restify": "^4.1.1"
+  "main": "src/index.js",
+  "scripts": {
+    "start": "npm run build && node dist/index.js",
+    "lint": "eslint --ext js src",
+    "build": "npm run lint && babel src --out-dir dist"
   },
-  "engines": {
-    "node": "^6.0.0"
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "lodash.get": "^4.4.2",
+    "node-schedule": "^1.2.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^4.1.1"
   }
 }

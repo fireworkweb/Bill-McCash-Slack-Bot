@@ -1,5 +1,6 @@
 node_modules
 Procfile
 *.log
-env.json
+src/env.js
 .DS_Store
+dist/
