@@ -51,6 +51,7 @@ function postTextToSlack (text, currencies, cryptoCurrencies) {
     )
 
     let textToPost = {
+        username: env.botName,
         text: text,
         attachments: [
             {
@@ -85,11 +86,16 @@ function startServer () {
         let user = `${userId}|${userName}`
 
         res.json({
+            username: env.botName,
             response_type: "ephemeral",
             text: messageReplace(env.msg.wait, { user: userId }),
         })
 
-        fetchAndPostMessage(messageReplace(env.msg.fellow, { user }))
+        let msg = env.bosses.find(boss => boss === userName)
+            ? env.msg.boss
+            : env.msg.fellow
+
+        fetchAndPostMessage(messageReplace(msg, { user }))
 
         next()
     })
@@ -107,7 +113,10 @@ function startCron () {
     // Schedule (cron)
     schedule.scheduleJob(env.cron.schedule, () => {
         let currentHours = new Date().getHours()
-        let msg = currentHours < 12 ? env.msg.morning : env.msg.afternoon
+
+        let msg = currentHours < 18
+            ? (currentHours < 12 ? env.msg.morning : env.msg.afternoon)
+            : env.msg.evening
 
         fetchAndPostMessage(msg)
     })
