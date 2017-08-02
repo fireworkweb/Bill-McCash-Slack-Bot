@@ -1,6 +1,6 @@
 import _get from 'lodash.get'
 import axios from 'axios'
-import env from './env'
+import env from '../env'
 
 const apiUrl = 'https://api.cryptonator.com/api/ticker'
 
