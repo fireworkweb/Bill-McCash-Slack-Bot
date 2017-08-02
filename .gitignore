@@ -4,3 +4,4 @@ Procfile
 src/env.js
 .DS_Store
 dist/
+.restart

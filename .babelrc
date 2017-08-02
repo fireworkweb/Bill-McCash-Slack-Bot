@@ -1,6 +1,11 @@
 {
   "presets": ["es2015"],
   "ignore": [
-    "src/env-example.js",
-  ]
+    "src/env-example.js"
+  ],
+  "env": {
+    "production": {
+      "presets": ["babili"]
+    }
+  }
 }

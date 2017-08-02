@@ -1,6 +1,6 @@
 import _get from 'lodash.get'
 import axios from 'axios'
-import env from './env'
+import env from '../env'
 
 const apiURL = 'http://api.fixer.io/latest'
 const apiFallbackURL = 'https://economia.awesomeapi.com.br/json/'
