@@ -10,7 +10,29 @@ function mapCurrency (cur, label) {
     }
 }
 
-export default function postTextToSlack (text, currencies, cryptoCurrencies) {
+function mapFoxbit (data) {
+    return [
+        {
+            title: 'Compra',
+            value: `R$ ${round(data.buy, 2)}`,
+            short: true,
+        }, {
+            title: 'Venda',
+            value: `R$ ${round(data.sell, 2)}`,
+            short: true,
+        }, {
+            title: 'Baixa',
+            value: `R$ ${round(data.low, 2)}`,
+            short: true,
+        }, {
+            title: 'Alta',
+            value: `R$ ${round(data.high, 2)}`,
+            short: true,
+        },
+    ]
+}
+
+export default function postTextToSlack (text, currencies, cryptoCurrencies, foxbit) {
     currencies = currencies.map(
         cur => mapCurrency(cur, env.currencies.label)
     )
@@ -24,19 +46,27 @@ export default function postTextToSlack (text, currencies, cryptoCurrencies) {
         text += ` ${env.emoji[randomNumber]}`
     }
 
+    let attachments = [
+        {
+            color: '#06ff00',
+            fields: currencies,
+        }, {
+            color: '#136ebd',
+            fields: cryptoCurrencies,
+        },
+    ]
+
+    if (foxbit) {
+        attachments.push({
+            color: '#e8683e',
+            fields: mapFoxbit(foxbit),
+        })
+    }
+
     let textToPost = {
         username: env.botName,
         text,
-        attachments: [
-            {
-                color: '#06ff00',
-                fields: currencies,
-            },
-            {
-                color: '#136ebd',
-                fields: cryptoCurrencies,
-            },
-        ],
+        attachments: attachments,
     }
 
     return axios.post(env.slackWebhookURL, textToPost)
