@@ -5,5 +5,5 @@ export function messageReplace (msg, data) {
 }
 
 export function round (value = 0, decimals = 0) {
-    return Math.round(value * Math.pow(10, decimals)) / Math.pow(10, decimals)
+    return (Math.round(value * Math.pow(10, decimals)) / Math.pow(10, decimals)).toFixed(decimals)
 }
