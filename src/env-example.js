@@ -4,6 +4,11 @@ export default {
     slackWebhookURL: 'incoming-webhook-url',
     port: 3000,
 
+    foxbit: {
+        enabled: true,
+        currency: 'BRL',
+    },
+
     cryptoCurrencies: {
         from: [ 'BTC', 'XMR', 'ETH', 'DCR' ],
 
