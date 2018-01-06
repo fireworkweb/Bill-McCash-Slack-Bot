@@ -1,11 +1,11 @@
 import axios from 'axios'
 import env from '../env'
-import { round } from './utils'
+import { currencyFormat } from './utils'
 
-function mapCurrency (cur, label) {
+function mapCurrency (cur, label, decimals = 4) {
     return {
         title: cur.from,
-        value: `${label} ${round(cur.value, 4)}`,
+        value: `${label} ${currencyFormat(cur.value, decimals)}`,
         short: true,
     }
 }
@@ -14,19 +14,19 @@ function mapFoxbit (data) {
     return [
         {
             title: 'Compra',
-            value: `R$ ${round(data.buy, 2)}`,
+            value: `R$ ${currencyFormat(data.buy, 2)}`,
             short: true,
         }, {
             title: 'Venda',
-            value: `R$ ${round(data.sell, 2)}`,
+            value: `R$ ${currencyFormat(data.sell, 2)}`,
             short: true,
         }, {
             title: 'Baixa',
-            value: `R$ ${round(data.low, 2)}`,
+            value: `R$ ${currencyFormat(data.low, 2)}`,
             short: true,
         }, {
             title: 'Alta',
-            value: `R$ ${round(data.high, 2)}`,
+            value: `R$ ${currencyFormat(data.high, 2)}`,
             short: true,
         },
     ]
@@ -38,7 +38,7 @@ export default function postTextToSlack (text, currencies, cryptoCurrencies, fox
     )
 
     cryptoCurrencies = cryptoCurrencies.map(
-        cur => mapCurrency(cur, env.cryptoCurrencies.label)
+        cur => mapCurrency(cur, env.cryptoCurrencies.label, 2)
     )
 
     if (env.emoji && env.emoji.length) {
