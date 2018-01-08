@@ -3,9 +3,11 @@ export default {
     trigger: 'bill',
     slackWebhookURL: 'incoming-webhook-url',
     port: 3000,
+    locale: 'pt',
 
     foxbit: {
         enabled: true,
+
         currency: 'BRL',
     },
 
