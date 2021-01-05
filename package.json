@@ -14,7 +14,7 @@
     "build:prod": "BABEL_ENV=production npm run build:base"
   },
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "blinktrade": "^0.0.15",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
