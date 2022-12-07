@@ -17,7 +17,7 @@
     "axios": "^0.21.1",
     "blinktrade": "^0.0.15",
     "body-parser": "^1.18.2",
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "lodash.get": "^4.4.2",
     "lodash.includes": "^4.3.0",
     "node-schedule": "^1.2.5"
